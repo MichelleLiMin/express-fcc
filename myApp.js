@@ -3,7 +3,8 @@ var bodyParser = require("body-parser");
 var express = require("express");
 var app = express();
 
-app.post(app.use(bodyParser.urlencoded({ extended: false })));
+//  app.post(app.use(bodyParser.urlencoded({ extended: false })));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.post("/name", bodyParser.urlencoded({ extended: false }), (req, res) => {
   let string = req.body.first + " " + req.body.last;
   res.json({ name: string });
