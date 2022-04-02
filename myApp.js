@@ -1,6 +1,12 @@
 require("dotenv").config();
-var express = require("express");
-var app = express();
+let bodyParser = require('body-parser')
+let express = require("express");
+let app = express();
+
+app.post("/name", app.use(bodyParser.urlencoded({ extended: false })),(req, res)=>{
+  let string =req.body.first + " " + req.body.last;
+  res.json({ name: string});
+}  )
 app.get(
   "/now",
   (req, res, next) => {
